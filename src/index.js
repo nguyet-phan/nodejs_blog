@@ -7,6 +7,11 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.urlencoded({
+	extended: true
+}));//gui DL dang Form data
+app.use(express.json()); //gui DL tu javascript: XMLHttpRequest, fetch, axios, ...
+
 //HTTP logger
 // app.use(morgan('combined'));
 
@@ -23,7 +28,6 @@ app.get('/', (req, res) => {
 })
 
 app.get('/news', (req, res) => {
-	// console.log(req.query.q);
 	res.render('news');
 })
 
@@ -31,6 +35,11 @@ app.get('/search', (req, res) => {
 	///serach?q=nguyet phan & ref=mycv
 	// console.log(req.query.q);
 	res.render('search');
+})
+
+app.post('/search', (req, res) => {
+	console.log(req.body);//ket hop voi code dong 10, 11
+	res.send('');
 })
 
 //localhost - 127.0.0.1
