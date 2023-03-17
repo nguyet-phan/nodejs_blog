@@ -12,7 +12,7 @@ const Course = new Schema({
     videoId: { type: String, required: true, },
     level: { type: String, },
     slug: { type: String, slug: 'name' },
-    // slug: { type: String, slug: 'name', unique: true }, //các slug là duy nhất(unique), không được trùng nhau
+    // slug: { type: String, slug: "name", unique: true }, //các slug là duy nhất(unique), không được trùng nhau, ///sử dụng unique ==> lỗi Query.prototype.exec() no longer accepts a callback
 }, {
     timestamps: true,
 });
